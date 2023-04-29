@@ -1,68 +1,39 @@
-<!DOCTYPE html>
-<html lang="en">
+<<!DOCTYPE html>
+<html class = "dark"lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <script src="libs/gsap-latest-beta.min.js" defer></script>
-    <script src="libs/ScrollTrigger.min.js" defer></script>
-    <script src="libs/ScrollSmoother.min.js" defer></script>
-    <script src="libs/SplitText.min.js" defer></script>
-    <script src="js/app.js" defer></script>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel ="stylesheet"href="style.css">
+  <title>Weather App</title>
 </head>
-<body>
-    <div id="wrapper">
-      <div id="content">
-        <section class="title container flow--lg">
-          <h1><span class="eyebrow" aria-hidden="true"></span>GSAP scrollsmoother</h1>
-          <p>Seamlessly integrated with GSAP and ScrollTrigger. Leveraging native scrolling - no "fake" scrollbars or event hijacking.</p>
-        </section>
-          
-          <div class="gallery-wrapper">
-            <div class="gallery">
-              <div class="gallery-box">
-                <img src="images/1.jpg" alt="1" />
-              </div>
-              <div class="gallery-box">
-                <img src="images/2.jpg" alt="2" />
-              </div>
-              <div class="gallery-box">
-                <img src="images/3.jpg" alt="3" />
-              </div>
-              <div class="gallery-box">
-                <img src="images/4.jpg" alt="4" />
-              </div>
-              <div class="gallery-box">
-                <img src="images/5.jpg" alt="5" />
-              </div>
-              <div class="gallery-box">
-                <img src="images/6.jpg" alt="6" />
-              </div>
-              <div class="gallery-box">
-                <img src="images/7.jpg" alt="7" />
-              </div>
-              <div class="gallery-box">
-                <img src="images/8.jpg" alt="8" />
-              </div>
-            </div>
-          </div>
-      
-          <section class="staggered container">
-            <div class="staggered_text">
-             <div class="flow content">
-              <h2>@Code_Basic</h2>
-              <p>Please Subscribe, Share, and gives some likes!</p>
-             </div>
-            </div>
-         
-            <div class="staggered_demo">
-             <h3 id="split-stagger">thank you...</h3>
-            </div>
-           </section>
-      
-      </div>
+<body class = " dark:bg-black dark:text-white">
+  <div class = 'dark:bg-black dark:text-white  space-y-4'>
+  <div class = " dark:bg-black dark:text-white container  mx-auto  flex md:flex-col items-center justify-center px-2">
+    <div class = " dark:bg-slate-800 rounded-lg dark:text-white dark:border-none border border-grey-light bg-white px-6 py-8  shadow-md text-black w-full">
+      <div class = 'flex justify-center'>
+    <input id = 'city' class = " justify-center dark:text-black focus:outline-none py-2 text-center border border-grey-light bg-white rounded-full " type = "text"placeholder="Enter Any City"/>
     </div>
+    <div class = "flex max-w-sm justify-center ">
+   <button id = "add"class=" float-left bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-center">
+  Submit
+</button>
+</div>
+  </div>
+  </div>
+  <div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+   <img src = ""id = "img"/>
+      <h2 class = "text-3xl"id="cityoutput"></h2>
+      <p id="description"></p>
+      <p id="temp"></p>
+      <p id="wind"></p>
+  </div>
+  </div>
+  <button id = "on"class = "border border-blue-700 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">On</button>
+    <button id = "off"class = "border border-blue-700 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Off</button>
+    <div>
+      <br>
+    <p class = "border border-blue-700 rounded-full dark:bg-slate-800">CREATED WITH ❤️ By Matovu Caleb</p></div>
+  <script src="main.js"></script>
 </body>
 </html>
