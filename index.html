@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html class = "dark"lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel ="stylesheet"href="style.css">
+  <title>Weather App</title>
+</head>
+<body class = " dark:bg-black dark:text-white">
+  <div class = 'dark:bg-black dark:text-white  space-y-4'>
+  <div class = " dark:bg-black dark:text-white container  mx-auto  flex md:flex-col items-center justify-center px-2">
+    <div class = " dark:bg-slate-800 rounded-lg dark:text-white dark:border-none border border-grey-light bg-white px-6 py-8  shadow-md text-black w-full">
+      <div class = 'flex justify-center'>
+    <input id = 'city' class = " justify-center dark:text-black focus:outline-none py-2 text-center border border-grey-light bg-white rounded-full " type = "text"placeholder="Enter Any City"/>
+    </div>
+    <div class = "flex max-w-sm justify-center ">
+   <button id = "add"class=" float-left bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full text-center">
+  Submit
+</button>
+</div>
+  </div>
+  </div>
+  <div class="bg-white dark:bg-slate-800 rounded-lg px-6 py-8 ring-1 ring-slate-900/5 shadow-xl">
+   <img src = ""id = "img"/>
+      <h2 class = "text-3xl"id="cityoutput"></h2>
+      <p id="description"></p>
+      <p id="temp"></p>
+      <p id="wind"></p>
+  </div>
+  </div>
+  <button id = "on"class = "border border-blue-700 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">On</button>
+    <button id = "off"class = "border border-blue-700 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">Off</button>
+    <div>
+      <br>
+    <p class = "border border-blue-700 rounded-full dark:bg-slate-800">CREATED WITH ❤️ By Matovu Caleb</p></div>
+  <script src="main.js"></script>
+</body>
+</html>
