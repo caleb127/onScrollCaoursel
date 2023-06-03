@@ -55,3 +55,35 @@ plt.axis('off')
 opt_discriminator = optim.Adam(discriminator.parameters(), lr=learning_rate)
 opt_generator = optim.Adam(generator.parameters(), lr=learning_rate)
 criterion = nn.BCELoss()
+for epoch in range(num_epochs):
+    for id, (training_sample, _) in enumerate(loader):
+        training_sample = training_sample.view(-1, 784)
+        batch_size = training_sample.shape[0]
+
+        ### Training the Discriminator
+        noise = torch.randn(batch_size, noise_dim)
+        fake_sample = generator(noise)
+        disc_realSample = discriminator(training_sample).view(-1)
+        lossD_realSample = criterion(disc_realSample, torch.ones_like(disc_realSample))
+        disc_fakeSample = discriminator(fake_sample).view(-1)
+        lossD_fakeSample = criterion(disc_fakeSample, torch.zeros_like(disc_fakeSample)) 
+        lossD = (lossD_realSample + lossD_fakeSample) / 2
+        discriminator.zero_grad()
+        #we are trying to minimize the total classification error
+        lossD.backward(retain_graph=True)
+        opt_discriminator.step()
+
+        ### Training the Generator
+        lossD_fakeSample = discriminator(fake_sample).view(-1)
+        lossG = criterion(lossD_fakeSample, torch.ones_like(lossD_fakeSample))#we are trying to maximize the error of classification of fake image by the discriminator
+        generator.zero_grad()
+        lossG.backward()
+        opt_generator.step()
+
+        if id == 0:
+            print( "Epoch: {epoch} \t Discriminator Loss: {lossD} Generator Loss: {lossG}".format( epoch=epoch, lossD=lossD, lossG=lossG))
+fake = gen(fixed_noise).reshape(-1, 1, 28, 28)
+img_grid_fake = torchvision.utils.make_grid(fake, normalize=True)
+npgrid = img_grid_fake.cpu().numpy()
+lt.imshow(np.transpose(npgrid, (1, 2, 0)), interpolation='nearest')
+plt.axis('off')
